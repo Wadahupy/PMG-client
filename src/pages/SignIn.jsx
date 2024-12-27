@@ -3,7 +3,7 @@ import SignInForm from "../components/SignIn/SignInForm";
 
 const SignIn = () => {
   return (
-    <div>
+    <div className="px-5">
       <SignInForm />
     </div>
   );

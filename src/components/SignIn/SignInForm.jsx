@@ -31,7 +31,7 @@ export const SignInForm = () => {
             <div className="flex flex-row gap-2">
               <Input
                 size="lg"
-                placeholder="name@mail.com"
+                placeholder="e.g. Juan Dela Cruz"
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
                 labelProps={{
                   className: "before:content-none after:content-none",

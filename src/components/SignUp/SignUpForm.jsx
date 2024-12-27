@@ -26,10 +26,10 @@ const SignUpForm = () => {
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Name
             </Typography>
-            <div className="flex flex-row w-full gap-2">
+            <div className="flex flex-col w-full gap-2 sm:flex-row">
               <Input
                 size="lg"
-                placeholder="First Name"
+                placeholder="e.g. Juan"
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                 labelProps={{
                   className: "before:content-none after:content-none",
@@ -37,7 +37,7 @@ const SignUpForm = () => {
               />
               <Input
                 size="lg"
-                placeholder="Last Name"
+                placeholder="e.g. Dela Cruz"
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
                   className: "before:content-none after:content-none",
@@ -52,7 +52,7 @@ const SignUpForm = () => {
             <div className="flex flex-row gap-2">
               <Input
                 size="lg"
-                placeholder="name@mail.com"
+                placeholder="e.g. Juan Dela Cruz"
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
                 labelProps={{
                   className: "before:content-none after:content-none",
@@ -67,7 +67,7 @@ const SignUpForm = () => {
             <div className="flex flex-row gap-2">
               <Input
                 size="lg"
-                placeholder="0912345678"
+                placeholder="e.g. 0912345678"
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
                 labelProps={{
                   className: "before:content-none after:content-none",

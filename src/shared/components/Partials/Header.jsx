@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
+
 import {
   Navbar,
   Collapse,
@@ -12,8 +13,8 @@ import Logo from "./Logo";
 
 const Header = () => {
   const [openNav, setOpenNav] = React.useState(false);
-
   const navigate = useNavigate();
+  const location = useLocation();
 
   React.useEffect(() => {
     window.addEventListener(
@@ -34,7 +35,7 @@ const Header = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-bold flex items-center font-dm_sans nav"
+              ? "text-primary active font-bold flex items-center font-dm_sans nav"
               : "text-gray-500 flex items-center font-dm_sans nav"
           }
         >
@@ -51,7 +52,7 @@ const Header = () => {
           to="/about"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-bold flex items-center font-dm_sans nav"
+              ? "text-primary active font-bold flex items-center font-dm_sans nav"
               : "text-gray-500 flex items-center font-dm_sans nav"
           }
         >
@@ -68,20 +69,12 @@ const Header = () => {
           to="/services"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-bold flex items-center font-dm_sans nav"
+              ? "text-primary active font-bold flex items-center font-dm_sans nav"
               : "text-gray-500 flex items-center font-dm_sans nav"
           }
         >
           Services
         </NavLink>
-        <NavLink
-          to="/sign-up"
-          className={({ isActive }) =>
-            isActive
-              ? "text-primary font-bold flex items-center font-dm_sans nav"
-              : "text-gray-500 flex items-center font-dm_sans nav"
-          }
-        ></NavLink>
       </Typography>
       <Typography
         as="li"
@@ -93,7 +86,7 @@ const Header = () => {
           to="/schedule"
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-bold flex items-center font-dm_sans nav"
+              ? "text-primary active font-bold flex items-center font-dm_sans nav"
               : "text-gray-500 flex items-center font-dm_sans nav"
           }
         >
@@ -112,7 +105,7 @@ const Header = () => {
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
-            href="#"
+            href="/"
             className="mr-4 cursor-pointer py-1.5 font-medium"
           >
             <div className="flex flex-row items-center justify-center gap-2 font-quattrocento">
@@ -123,14 +116,18 @@ const Header = () => {
             </div>
           </Typography>
           <div className="hidden mr-4 lg:block">{navList}</div>
+
+          {/* Conditionally style Sign In button */}
           <Button
-            variant="outlined"
+            variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
             size="sm"
-            className="hidden lg:inline-block font-dm_sans"
+            color={location.pathname === "/sign-in" ? "yellow" : "black"}
+            className="hidden border border-black lg:inline-block font-dm_sans"
             onClick={() => navigate("/sign-in")}
           >
             <span>Sign In</span>
           </Button>
+
           <IconButton
             variant="text"
             className="lg:hidden"
@@ -145,7 +142,14 @@ const Header = () => {
         </div>
         <Collapse open={openNav}>
           {navList}
-          <Button fullWidth variant="gradient" size="sm" color="yellow">
+          <Button
+            fullWidth
+            variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
+            size="sm"
+            color={location.pathname === "/sign-in" ? "yellow" : "black"}
+            className="border border-black"
+            onClick={() => navigate("/sign-in")}
+          >
             <span>Sign In</span>
           </Button>
         </Collapse>

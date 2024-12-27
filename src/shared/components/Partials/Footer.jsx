@@ -1,4 +1,5 @@
 import React from "react";
+import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 
 import ScheduleBtn from "/src/shared/components/partials/ScheduleBtn";
 import { NavLink } from "react-router-dom";
@@ -34,15 +35,16 @@ const Footer = () => {
         <div className="font-dm_sans">
           <h2 className="mb-4 text-lg font-bold">Follow Us</h2>
           <div className="flex mb-8 space-x-2">
-            {/* Icons (replace with actual icons if available) */}
-            {Array.from({ length: 6 }).map((_, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center w-8 h-8 text-blue-900 bg-yellow-400 rounded-full"
-              >
-                🐾
-              </div>
-            ))}
+            {/* Icons */}
+            <div className="flex items-center justify-center w-8 h-8 text-blue-900 bg-yellow-400 rounded-full">
+              <FaFacebook />
+            </div>
+            <div className="flex items-center justify-center w-8 h-8 text-blue-900 bg-yellow-400 rounded-full">
+              <FaInstagram />
+            </div>
+            <div className="flex items-center justify-center w-8 h-8 text-blue-900 bg-yellow-400 rounded-full">
+              <FaXTwitter />
+            </div>
           </div>
           <h2 className="mb-4 text-lg font-bold ">Links</h2>
           <div className="flex flex-col font-light text-md gap-11 font-dm_sans">
