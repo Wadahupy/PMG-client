@@ -23,12 +23,13 @@ const Services = () => {
   return (
     <>
       {/* Header Section */}
-      <section className="py-12 text-white bg-primary">
-        <div className="relative z-10 max-w-4xl p-10 mx-auto text-start">
+      <section className="relative flex w-full text-white">
+
+        <div className="container relative z-10 flex flex-col px-5 mx-auto overflow-hidden md:inline-block py-14 lg:px-28 text-start bg-primary">
           <h1 className="mb-8 text-6xl font-bold font-quattrocento">
             OUR SERVICES
           </h1>
-          <p className="z-10 mb-10 text-xl font-dm_sans">
+          <p className="z-10 text-2xl mb-14 font-dm_sans text-pretty">
             We offer a range of innovative solutions designed to simplify and
             enhance your experience. Our services are tailored to meet your
             unique needs, providing seamless scheduling, comprehensive service
@@ -36,17 +37,21 @@ const Services = () => {
             continuous improvement. Discover how our tools can help streamline
             your processes and deliver exceptional results.
           </p>
+
+          <ScheduleBtn />
+
           <img
-            className="absolute w-[300px] h-[300px] -z-10  right-0 top-0 brightness-50 "
+            className="w-[60%] xl:w-[50%] 2xl:w-[40%] min-h-fit -z-10 right-5 bottom-5 absolute mix-blend-multiply opacity-40"
             src="/src/assets/images/bg-icon.png"
           />
-          <ScheduleBtn />
+
         </div>
+        <div className="absolute w-full h-full bg-primary -z-10"></div>
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl px-6 mx-auto">
+      <section className="mb-32 pt-14">
+        <div className="container px-5 mx-auto">
           {/* Smart Scheduling System */}
           <ServiceBody serviceBodies={serviceContents} />
         </div>

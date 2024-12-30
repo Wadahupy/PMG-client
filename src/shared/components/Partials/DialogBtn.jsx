@@ -23,7 +23,7 @@ const DialogBtn = () => {
         <Button
           onClick={handleOpen}
           variant="gradient"
-          className="flex items-center mx-2 border border-black"
+          className="flex items-center mx-2 bg-black border border-black"
           color="yellow"
         >
           <PlusIcon className="w-5 h-5" />

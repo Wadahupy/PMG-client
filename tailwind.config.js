@@ -16,6 +16,9 @@ module.exports = withMT({
         quattrocento: ["Quattrocento", "sans-serif"],
         dm_sans: ["DM Sans", "sans"]
       },
+      // fontSize: {
+      //   'responsive-hours': 'clamp(1rem, 50vw, 2.25rem)',
+      // },
     },
   },
   plugins: [],

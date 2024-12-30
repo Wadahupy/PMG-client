@@ -24,7 +24,7 @@ const Header = () => {
   }, []);
 
   const navList = (
-    <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="flex flex-col gap-4 m-4 lg:flex-row lg:gap-8">
       <Typography
         as="li"
         variant="small"
@@ -35,8 +35,8 @@ const Header = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-primary active font-bold flex items-center font-dm_sans nav"
-              : "text-gray-500 flex items-center font-dm_sans nav"
+              ? "text-primary active font-bold flex items-center nav"
+              : "text-black flex items-center nav"
           }
         >
           Home
@@ -52,8 +52,8 @@ const Header = () => {
           to="/about"
           className={({ isActive }) =>
             isActive
-              ? "text-primary active font-bold flex items-center font-dm_sans nav"
-              : "text-gray-500 flex items-center font-dm_sans nav"
+              ? "text-primary active font-bold flex items-center nav"
+              : "text-black flex items-center nav"
           }
         >
           About
@@ -69,8 +69,8 @@ const Header = () => {
           to="/services"
           className={({ isActive }) =>
             isActive
-              ? "text-primary active font-bold flex items-center font-dm_sans nav"
-              : "text-gray-500 flex items-center font-dm_sans nav"
+              ? "text-primary active font-bold flex items-center nav"
+              : "text-black flex items-center nav"
           }
         >
           Services
@@ -86,8 +86,8 @@ const Header = () => {
           to="/schedule"
           className={({ isActive }) =>
             isActive
-              ? "text-primary active font-bold flex items-center font-dm_sans nav"
-              : "text-gray-500 flex items-center font-dm_sans nav"
+              ? "text-primary active font-bold flex items-center nav"
+              : "text-black flex items-center nav"
           }
         >
           Schedule
@@ -97,35 +97,38 @@ const Header = () => {
   );
 
   return (
-    <div className="container w-full mx-auto">
+    <div className="container w-full mx-auto lg:px-5">
       <Navbar
-        className="sticky top-0 z-10 max-w-full px-4 py-2 rounded-none h-max lg:px-8 lg:py-4"
+        className="px-5 lg:px-0"
         shadow={false}
       >
-        <div className="flex items-center justify-between text-blue-gray-900">
+        <div className="relative flex items-center justify-between text-black">
           <Typography
             as="a"
             href="/"
-            className="mr-4 cursor-pointer py-1.5 font-medium"
+            className="mr-4 z-20 cursor-pointer py-1.5 font-medium"
           >
-            <div className="flex flex-row items-center justify-center gap-2 font-quattrocento">
-              <Logo />
-              <p className="text-lg leading-5">
+            <div className="flex flex-row items-center gap-2 ">
+              <Logo size="w-11 h-11 xl:w-[3.75rem] xl:h-[3.75rem]" />
+              <p className="text-xl leading-5 xl:leading-7 xl:text-2xl font-quattrocento">
                 Pet Memorial <br /> Garden
               </p>
             </div>
           </Typography>
-          <div className="hidden mr-4 lg:block">{navList}</div>
+
+          <div className="absolute z-10 justify-center hidden w-full lg:flex">
+            {navList}
+          </div>
 
           {/* Conditionally style Sign In button */}
           <Button
             variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
-            size="sm"
+            size="md"
             color={location.pathname === "/sign-in" ? "yellow" : "black"}
-            className="hidden border border-black lg:inline-block font-dm_sans"
+            className="z-20 hidden px-8 border border-black lg:flex font-dm_sans"
             onClick={() => navigate("/sign-in")}
           >
-            <span>Sign In</span>
+            <p className="text-base font-bold font-dm_sans">Sign In</p>
           </Button>
 
           <IconButton
@@ -141,16 +144,16 @@ const Header = () => {
           </IconButton>
         </div>
         <Collapse open={openNav}>
-          {navList}
+          <div className="visible lg:invisible">{navList}</div>
           <Button
             fullWidth
             variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
-            size="sm"
+            size="md"
             color={location.pathname === "/sign-in" ? "yellow" : "black"}
-            className="border border-black"
+            className="block mt-4 border border-black lg:hidden"
             onClick={() => navigate("/sign-in")}
           >
-            <span>Sign In</span>
+            <p className="text-base font-bold font-dm_sans">Sign In</p>
           </Button>
         </Collapse>
       </Navbar>
