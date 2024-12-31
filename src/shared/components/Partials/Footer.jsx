@@ -110,15 +110,15 @@ const Footer = () => {
               <h2 className="text-xl font-semibold ">Opening Hours</h2>
               <div className="flex flex-col items-center h-full gap-4 sm:items-start">
                 <div className="flex flex-col items-center sm:items-start">
-                  <p className="text-5xl font-quattrocento text-nowrap">
+                  <p className="text-4xl sm:text-5xl font-quattrocento text-nowrap">
                     7:00 AM-8:00 PM
                   </p>
                   <p className="text-3xl font-light">Mon - Fri</p>
                 </div>
                 <div className="flex flex-col gap-0.5 items-center sm:items-start mt-4 sm:mt-0">
-                  <p className="">099999999</p>
-                  <p className="">petmemorial@garden.com</p>
-                  <p className="">123 Pet Memorial Garden Barangay Fortune PH</p>
+                  <p className="text-center sm:text-start">099999999</p>
+                  <p className="text-center sm:text-start">petmemorial@garden.com</p>
+                  <p className="text-center sm:text-start">123 Pet Memorial Garden Barangay Fortune PH</p>
                 </div>
               </div>
             </div>

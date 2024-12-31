@@ -97,9 +97,10 @@ const Header = () => {
   );
 
   return (
-    <div className="container w-full mx-auto lg:px-5">
+    <div className="w-full bg-white">
       <Navbar
-        className="px-5 lg:px-0"
+        color="transparent"
+        className="container px-5 mx-auto rounded-none"
         shadow={false}
       >
         <div className="relative flex items-center justify-between text-black">
@@ -125,10 +126,10 @@ const Header = () => {
             variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
             size="md"
             color={location.pathname === "/sign-in" ? "yellow" : "black"}
-            className="z-20 hidden px-8 border border-black lg:flex font-dm_sans"
+            className="z-20 hidden px-8 border border-black lg:flex font-dm_sans rounded-xl"
             onClick={() => navigate("/sign-in")}
           >
-            <p className="text-base font-bold font-dm_sans">Sign In</p>
+            <p className="text-lg font-bold normal-case font-dm_sans">Sign In</p>
           </Button>
 
           <IconButton
@@ -150,10 +151,10 @@ const Header = () => {
             variant={location.pathname === "/sign-in" ? "filled" : "outlined"}
             size="md"
             color={location.pathname === "/sign-in" ? "yellow" : "black"}
-            className="block mt-4 border border-black lg:hidden"
+            className="block mt-6 mb-4 border border-black lg:hidden rounded-xl"
             onClick={() => navigate("/sign-in")}
           >
-            <p className="text-base font-bold font-dm_sans">Sign In</p>
+            <p className="text-lg font-bold normal-case font-dm_sans">Sign In</p>
           </Button>
         </Collapse>
       </Navbar>
