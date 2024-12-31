@@ -148,7 +148,7 @@ const ScheduleTable = () => {
       </div>
 
       {/* table */}
-      <CardBody className="p-0 overflow-auto border border-y-black">
+      <CardBody className="p-0 overflow-auto border border-y-black min-h-[400px] max-h-[70vh]">
         <table className="w-full text-left table-auto">
           <thead>
             <tr>
@@ -198,6 +198,7 @@ const ScheduleTable = () => {
             ))}
           </tbody>
         </table>
+
         <div className="flex justify-start m-4 text-sm hover:text-red-500">
           <button onClick={handleClearSelection}>Clear Select</button>
         </div>
