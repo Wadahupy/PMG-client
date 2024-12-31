@@ -51,74 +51,102 @@ const TABLE_ROWS = [
 
 const ScheduleTable = () => {
   const [selectedRow, setSelectedRow] = useState(null);
+  const [activeTab, setActiveTab] = useState("Pending");
 
   const handleClearSelection = () => setSelectedRow(null);
   return (
-    <Card className="w-full h-full border border-black">
-      <CardHeader floated={false} shadow={false} className="mb-4 rounded-none">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center gap-4">
-            <Button
-              variant="gradient"
-              size="sm"
-              color="light-blue"
-              className="border border-black"
-            >
-              Pending
-              <span className="px-2 py-1 ml-1 text-blue-700 rounded-full bg-secondary">
-                5
-              </span>
-            </Button>
-            <Button size="sm" color="white" className="border border-black">
-              Upcoming
-              <span className="px-2 py-1 ml-1 text-gray-700 rounded-full bg-secondary">
-                5
-              </span>
-            </Button>
-            <Button size="sm" color="white" className="border border-black">
-              Completed
-              <span className="px-2 py-1 ml-1 text-gray-700 rounded-full bg-secondary">
-                5
-              </span>
-            </Button>
-          </div>
-          <div className="flex flex-col items-start gap-4 overflow-hidden sm:flex-row">
-            <div className="flex flex-row flex-wrap my-1">
-              <Input
-                label="Search here..."
-                icon={<MagnifyingGlassIcon className="w-5 h-5" />}
-              />
-            </div>
-            <div className="flex flex-row flex-wrap gap-2 my-1">
-              <Tooltip content="Edit Schedule">
-                <IconButton
-                  color="blue"
-                  className="w-16 h-10 border border-black rounded-full"
-                >
-                  <BsPencilSquare className="w-5 h-5" />
-                </IconButton>
-              </Tooltip>
-              <Tooltip content="Download PDF">
-                <IconButton
-                  color="green"
-                  className="w-16 h-10 border border-black rounded-full"
-                >
-                  <FaFilePdf className="w-5 h-5" />
-                </IconButton>
-              </Tooltip>
-              <Tooltip content="Delete Schedule">
-                <IconButton
-                  color="red"
-                  className="w-16 h-10 border border-black rounded-full"
-                >
-                  <FaTrash className="w-5 h-5" />
-                </IconButton>
-              </Tooltip>
-              <DialogBtn />
-            </div>
-          </div>
+    //  min-h-[50vh]
+    <div className="w-full h-full bg-white border border-black rounded-3xl">
+
+      {/* header */}
+      <div className="flex items-center justify-between gap-4 m-4">
+
+        {/* tabs section */}
+        <div className="flex items-center gap-4">
+
+          <button
+            className={`py-2 px-4 h-full flex items-center w-fit gap-2 rounded-xl text-base duration-300 ease-in-out ${activeTab === "Pending" ? "cursor-default text-white bg-primary" : "text-black hover:bg-blue-gray-50"}`}
+            onClick={() => { setActiveTab("Pending") }}
+          >
+            <p>Pending</p>
+            {/* Pending notification */}
+            <span className="flex items-center justify-center text-sm text-black rounded-full bg-secondary size-8">5</span>
+          </button>
+
+          <button
+            className={`py-2 px-4 h-full flex items-center w-fit gap-2 rounded-xl text-base duration-300 ease-in-out ${activeTab === "Upcoming" ? "cursor-default text-white bg-primary" : "text-black hover:bg-blue-gray-50"}`}
+            onClick={() => { setActiveTab("Upcoming") }}
+          >
+            <p>Upcoming</p>
+            {/* Upcoming notification */}
+            <span className="flex items-center justify-center text-sm text-black rounded-full bg-secondary size-8">5</span>
+          </button>
+
+          <button
+            className={`py-2 px-4 h-full flex items-center w-fit gap-2 rounded-xl text-base duration-300 ease-in-out ${activeTab === "Completed" ? "cursor-default text-white bg-primary" : "text-black hover:bg-blue-gray-50"}`}
+            onClick={() => { setActiveTab("Completed") }}
+          >
+            <p>Completed</p>
+            {/* Completed notification */}
+            <span className="flex items-center justify-center text-sm text-black rounded-full bg-secondary size-8">5</span>
+          </button>
+
         </div>
-      </CardHeader>
+
+        {/* tools section */}
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
+
+          {/* search bar */}
+          <div className="">
+            <Input
+              label="Search"
+              placeholder="Search here..."
+              icon={<MagnifyingGlassIcon className="w-5 h-5" />}
+              className="rounded-lg"
+            />
+          </div>
+
+          <div className="flex flex-row flex-wrap gap-2">
+
+            {/* edit */}
+            <Tooltip content="Edit Schedule">
+              <IconButton
+                color="blue"
+                className="w-16 h-10 border border-black rounded-full"
+              >
+                <BsPencilSquare className="w-5 h-5" />
+              </IconButton>
+            </Tooltip>
+
+            {/* dl pdf */}
+            <Tooltip content="Download PDF">
+              <IconButton
+                color="green"
+                className="w-16 h-10 border border-black rounded-full"
+              >
+                <FaFilePdf className="w-5 h-5" />
+              </IconButton>
+            </Tooltip>
+
+            {/* delete */}
+            <Tooltip content="Delete Schedule">
+              <IconButton
+                color="red"
+                className="w-16 h-10 border border-black rounded-full"
+              >
+                <FaTrash className="w-5 h-5" />
+              </IconButton>
+            </Tooltip>
+
+            {/* add sched btn */}
+            <DialogBtn />
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* table */}
       <CardBody className="px-4 overflow-x-auto border border-y-black">
         <table className="w-full text-left border table-auto border-blue-gray-50">
           <thead>
@@ -140,11 +168,10 @@ const ScheduleTable = () => {
             {TABLE_ROWS.map((row, index) => (
               <tr key={index}>
                 <td
-                  className={`p-4 text-sm text-blue-gray-600 ${
-                    index !== TABLE_ROWS.length - 1
-                      ? "border-b border-blue-gray-50"
-                      : ""
-                  }`}
+                  className={`p-4 text-sm text-blue-gray-600 ${index !== TABLE_ROWS.length - 1
+                    ? "border-b border-blue-gray-50"
+                    : ""
+                    }`}
                 >
                   <input
                     type="radio"
@@ -158,11 +185,10 @@ const ScheduleTable = () => {
                 {Object.values(row).map((cell, idx) => (
                   <td
                     key={idx}
-                    className={`p-4 text-sm text-blue-gray-600 ${
-                      index !== TABLE_ROWS.length - 1
-                        ? "border-b border-blue-gray-50"
-                        : ""
-                    }`}
+                    className={`p-4 text-sm text-blue-gray-600 ${index !== TABLE_ROWS.length - 1
+                      ? "border-b border-blue-gray-50"
+                      : ""
+                      }`}
                   >
                     {cell}
                   </td>
@@ -175,6 +201,8 @@ const ScheduleTable = () => {
           <button onClick={handleClearSelection}>Clear</button>
         </div>
       </CardBody>
+
+      {/* page */}
       <CardFooter className="flex items-center justify-between p-4 overflow-scroll border-t sm:overflow-hidden border-blue-gray-50">
         <Button variant="outlined" size="sm">
           Previous
@@ -206,7 +234,7 @@ const ScheduleTable = () => {
           Next
         </Button>
       </CardFooter>
-    </Card>
+    </div>
   );
 };
 

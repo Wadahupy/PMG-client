@@ -11,28 +11,26 @@ const UserInfo = () => {
   };
 
   return (
-    <div className="relative z-10 flex items-center justify-center ">
+    <div className="relative z-10 flex items-center justify-center font-dm_sans">
       <Card
-        color="transparent"
         shadow={false}
-        className="container rounded-2xl h-[700px] w-11/12 md:h-[700px] md:w-[700px] mx-auto -z-10"
+        className="container w-full h-full mx-auto rounded-2xl -z-10"
       >
         <div className="border border-black rounded-xl">
           <div className="w-full text-center p-7">
             <Typography
               variant="h4"
-              color="blue-gray"
-              className="text-4xl text-center"
+              className="text-6xl text-center text-black font-dm_sans"
             >
               User Information
             </Typography>
-            <Typography color="gray" className="mt-1 font-normal">
+            <Typography color="gray" className="mt-2 text-base font-dm_sans">
               Nice to meet you! Enter your details to register.
             </Typography>
           </div>
-          <hr className="h-0.5 bg-black border-0 dark:bg-gray-700"></hr>
+          <hr className="h-px bg-black border-0 dark:bg-gray-700"></hr>
           <form
-            className="w-full max-w-screen-lg p-10 mb-2"
+            className="w-full p-10 mb-2"
             onSubmit={handleSubmit}
           >
             <div className="flex flex-col gap-6 mb-10">
@@ -112,16 +110,15 @@ const UserInfo = () => {
             />
           </form>
         </div>
-      </Card>
-
-      {/* Overlay */}
-      {isVerifying && (
-        <div className="absolute flex items-center justify-center bg-gray-800 bg-opacity-50  container rounded-2xl h-[939px] w-11/12 md:h-[700px] md:w-[700px] mx-auto ">
-          <div className="px-6 py-3 text-lg font-semibold text-blue-700 bg-blue-100 rounded-md shadow-lg">
-            Waiting for Admin Verification..
+        {/* Overlay */}
+        {isVerifying && (
+          <div className="container absolute flex items-center justify-center w-full h-full mx-auto bg-gray-800 bg-opacity-50 rounded-2xl ">
+            <div className="px-6 py-3 text-lg font-semibold text-blue-700 bg-blue-100 rounded-md shadow-lg">
+              Waiting for Admin Verification..
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </Card>
     </div>
   );
 };

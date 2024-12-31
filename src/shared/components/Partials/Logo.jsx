@@ -1,9 +1,9 @@
 import React from "react";
 
-const Logo = ({ size = 10 }) => {
+const Logo = ({ size = "h-10 w-10" }) => {
   return (
     <img
-      className={`w-${size} h-${size}`}
+      className={`${size}`}
       src="../src/assets/images/logo-icon.png"
       alt="logo"
     />

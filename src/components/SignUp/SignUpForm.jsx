@@ -22,28 +22,6 @@ const SignUpForm = () => {
         </Typography>
         <form className="w-full max-w-screen-lg mt-8 mb-2">
           <div className="flex flex-col gap-6 mb-1">
-            {/* Name Section */}
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Name
-            </Typography>
-            <div className="flex flex-col w-full gap-2 sm:flex-row">
-              <Input
-                size="lg"
-                placeholder="e.g. Juan"
-                className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-              />
-              <Input
-                size="lg"
-                placeholder="e.g. Dela Cruz"
-                className="!border-t-blue-gray-200 focus:!border-t-gray-900"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-              />
-            </div>
 
             {/* Email Section */}
             <Typography variant="h6" color="blue-gray" className="-mb-3">
@@ -60,24 +38,23 @@ const SignUpForm = () => {
               />
             </div>
 
-            {/* Contact No. Section */}
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Contact Number
-            </Typography>
-            <div className="flex flex-row gap-2">
-              <Input
-                size="lg"
-                placeholder="e.g. 0912345678"
-                className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-              />
-            </div>
-
             {/* Password Section */}
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Password
+            </Typography>
+            <Input
+              type="password"
+              size="lg"
+              placeholder="********"
+              className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+            />
+
+            {/* Confirm Password Section */}
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
+              Confirm Password
             </Typography>
             <Input
               type="password"

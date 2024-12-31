@@ -5,25 +5,28 @@ import Testimonials from "/src/components/Home/Testimonials";
 import BannerCards from "/src/components/Home/BannerCards";
 import BannerHome from "/src/components/Home/BannerHome";
 import SubmitBtn from "../shared/components/Partials/SubmitBtn";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const cardItems = [
     {
-      title: "Specialized Pet Care",
+      title: "Memorial Planning",
       description:
-        "Our team of certified veterinarians will provide expert care tailored to your pet's needs, ensuring they receive the best possible care.",
+        "Simplify the process with thoughtful service options designed for your peace of mind.",
       image: "../src/assets/images/home-bg.png",
     },
     {
-      title: "Specialized Pet Care",
+      title: "Resting Place Options",
       description:
-        "Our team of certified veterinarians will provide expert care tailored to your pet's needs, ensuring they receive the best possible care.",
+        "Choose from beautifully maintained spaces dedicated to honoring your pet’s memory.",
       image: "../src/assets/images/home-bg.png",
     },
     {
-      title: "Specialized Pet Care",
+      title: "Support & Resources",
       description:
-        "Our team of certified veterinarians will provide expert care tailored to your pet's needs, ensuring they receive the best possible care.",
+        "Access compassionate guidance and resources to help you through this journey.",
       image: "../src/assets/images/home-bg.png",
     },
   ];
@@ -68,125 +71,147 @@ const Home = () => {
   };
 
   return (
-    <div className="z-0 min-h-screen overflow-hidden">
-      {/* Home Banner  */}
-      <section className="container relative mx-auto overflow-hidden">
-        <BannerHome />
-      </section>
+    <>
+      <div className="z-0 min-h-screen overflow-hidden">
+        {/* Home Banner  */}
+        <section className="container relative mx-auto overflow-hidden">
+          <BannerHome />
+        </section>
 
-      {/* Services Section */}
-      <section className="relative w-full py-12 text-center text-white -z-10 bg-primary -top-32 ">
-        <h2 className="mb-4 text-6xl pt-28 font-quattrocento">
-          OUR SERVICES AT A GLANCE
-        </h2>
-        <p className="mb-5 text-sm font-dm_sans">
-          Discover how we can help you honor the memory of your beloved pets
-          with care and ease.
-        </p>
-        <p className="flex items-center justify-center mb-10 font-thin text-center underline font-dm_sans">
-          View more
-          <HiArrowSmRight />
-        </p>
-        <Cards items={cardItems} />
-      </section>
+        {/* Services Section */}
+        <section className="relative w-full text-center text-white ">
+          <div className="container px-5 mx-auto mt-10">
+            <h2 className="text-6xl font-bold font-quattrocento">
+              OUR SERVICES AT A GLANCE
+            </h2>
+            <p className="text-base mt-2 font-dm_sans w-[70%] lg:w-full mx-auto text-pretty">
+              Discover how we can help you honor the memory of your beloved pets
+              with care and ease.
+            </p>
+            <a
+              className="flex items-center justify-center gap-2 mx-auto text-sm font-normal w-max hover:underline my-7 font-dm_sans"
+              href="/services"
+            // onClick={() => navigate("/services")}
 
-      {/* Testimonials Section*/}
-      <section className="container mx-auto">
-        <h2 className="w-full mb-10 text-5xl font-bold text-center md:text-6xl item-center font-quattrocento">
-          TESTIMONIALS
-        </h2>
-        <Testimonials testimonials={testimonialItems} />
-      </section>
+            >
+              View more
+              <HiArrowSmRight />
+            </a>
+            <Cards items={cardItems} />
+          </div>
+          <div className="absolute w-full h-[calc(100%+40px)] -top-20 bg-primary -z-10"></div>
+        </section>
 
-      {/* Why choose us Section*/}
-      <section className="relative w-full py-12 text-center text-white -z-10 bg-primary -top-32">
-        <h2 className="pt-10 mb-10 text-6xl font-quattrocento">
-          WHY CHOOSE US?
-        </h2>
-        <div>
-          <BannerCards bannerCards={chooseUsItems} />
-        </div>
-      </section>
-
-      {/* Have a Question Section*/}
-      <div className="container flex flex-col w-full max-w-4xl p-8 mx-auto mb-40 border border-black rounded-lg shadow-lg bg-secondary lg:flex-row">
-        {/* Left: Form Section */}
-        <div className="flex-1">
-          <form className="space-y-4">
-            <div>
-              <label htmlFor="name" className="sr-only">
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Your Name"
-                className="w-full p-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email Address
-              </label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Email Address"
-                className="w-full p-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="subject" className="sr-only">
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                placeholder="Subject"
-                className="w-full p-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="sr-only">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows="5"
-                placeholder="Message"
-                className="w-full p-3 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              ></textarea>
-            </div>
-            <SubmitBtn
-              label="Submit"
-              onClick={handleSubmit}
-              id="SubmitBtn"
-              type="submit"
-              className="mt-6"
-            />
-          </form>
-        </div>
-
-        {/* Right: Text Section */}
-        <div className="items-center justify-center flex-1 text-center lg:mt-0 lg:ml-12 lg:text-left">
-          <h2 className="mb-4 text-6xl font-bold text-black font-quattrocento">
-            Have Questions?
+        {/* Testimonials Section*/}
+        <section className="container px-5 mx-auto mt-10">
+          <h2 className="mb-10 text-5xl font-bold text-center md:text-6xl font-quattrocento">
+            TESTIMONIALS
           </h2>
-          <p className="mb-5 text-gray-700 ">
-            If you need assistance or more information about our services, feel
-            free to reach out. Our team is ready to answer any questions you may
-            have and guide you through the memorialization process.
-          </p>
-          <div className="flex justify-center lg:justify-center">
+          <Testimonials testimonials={testimonialItems} />
+        </section>
+
+        {/* Why choose us Section*/}
+        <section className="relative w-full pt-5 pb-10 mt-5 text-center text-white lg:mt-0 lg:py-0">
+          <div className="container px-5 mx-auto mt-5 lg:mt-10">
+            <h2 className="text-6xl font-bold mb-7 font-quattrocento">
+              WHY CHOOSE US?
+            </h2>
+            <div>
+              <BannerCards bannerCards={chooseUsItems} />
+            </div>
+          </div>
+          <div className="absolute w-full h-[calc(100%-80px)] top-0 lg:h-[calc(100%+40px)] lg:-top-20 bg-primary -z-10"></div>
+        </section>
+
+        {/* Have a Question Section*/}
+        <section className="container px-5 mx-auto mt-0 lg:mt-12">
+          <div className="relative flex flex-col xl:w-[80%] xl:mx-auto gap-5 p-10 overflow-hidden border border-black rounded-3xl bg-secondary lg:flex-row">
+            {/* left: Text Section */}
+            <div className="z-10 flex flex-col flex-1">
+              <div className="relative flex flex-col">
+                <img
+                  className={`w-10 h-fit mb-10 mx-auto md:mx-0 top-0 right-0 absolute lg:relative`}
+                  src="../src/assets/images/logo-icon-dark.png"
+                  alt="logo"
+                />
+                <h2 className="mb-4 text-6xl font-bold text-black font-quattrocento">
+                  Have <br /> Questions?
+                </h2>
+              </div>
+              <p className="text-base font-dm_sans text-pretty">
+                If you need assistance or more information about our services, feel
+                free to reach out. Our team is ready to answer any questions you may
+                have and guide you through the memorialization process.
+              </p>
+            </div>
+
+            {/* right: Form Section */}
+            <div className="z-10 flex-1 mt-5 lg:mt-0">
+              <form className="flex flex-col gap-4">
+                <div>
+                  <label htmlFor="name" className="sr-only">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    className="w-full p-3 border border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-black"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="sr-only">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    className="w-full p-3 border border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-black"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="subject" className="sr-only">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    placeholder="Subject"
+                    className="w-full p-3 border border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-black"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="sr-only">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows="5"
+                    placeholder="Message"
+                    className="w-full min-h-[200px] p-3 border border-black rounded-lg focus:outline-none focus:ring-1 focus:ring-black"
+                  ></textarea>
+                </div>
+                <SubmitBtn
+                  label="Submit"
+                  onClick={handleSubmit}
+                  id="SubmitBtn"
+                  type="submit"
+                  className=""
+                />
+              </form>
+            </div>
+
+            {/* logo bg */}
             <img
-              className={`size-52`}
-              src="../src/assets/images/logo-icon-dark.png"
+              className="min-w-fit h-[40%] md:h-[50%] lg:h-[90%] mix-blend-multiply absolute z-[9] -top-5 -right-5 lg:top-auto lg:right-auto lg:bottom-5 lg:-left-5 opacity-40"
+              src="../src/assets/images/bg-icon-pink.png"
               alt="logo"
             />
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 };
 

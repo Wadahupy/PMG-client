@@ -4,7 +4,8 @@ import UserInfo from "../components/Schedule/UserInfo";
 
 const Schedule = () => {
   return (
-    <div className="container px-5 mx-auto mb-56">
+    <div className="container px-5 mx-auto">
+      {/* <UserInfo /> */}
       <ScheduleTable />
     </div>
   );

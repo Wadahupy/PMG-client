@@ -20,7 +20,7 @@ export const SignInForm = () => {
           Sign In
         </Typography>
         <Typography color="gray" className="mt-1 font-normal">
-          Nice to meet you! Enter your details to register.
+          Welcome back! Sign In your account to continue.
         </Typography>
         <form className="w-full max-w-screen-lg mt-8 mb-2">
           <div className="flex flex-col gap-6 mb-1">
