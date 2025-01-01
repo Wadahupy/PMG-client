@@ -19,187 +19,175 @@ const DialogBtn = () => {
 
   return (
     <>
-      <Tooltip content="Edit Schedule">
-        <Button
+      <Tooltip placement="bottom" content="Add Schedule">
+        <button
           onClick={handleOpen}
-          variant="gradient"
-          className="flex items-center mx-2 bg-black border border-black"
-          color="yellow"
+          className="flex items-center justify-center w-full h-full gap-2 px-4 py-2 text-base duration-300 ease-in-out border border-black md:min-w-fit rounded-xl bg-tertiary hover:bg-yellow-600"
         >
           <PlusIcon className="w-5 h-5" />
           Add Schedule
-        </Button>
+        </button>
       </Tooltip>
 
-      <Dialog open={open} handler={handleOpen} className="max-h-screen">
-        <DialogHeader className="flex justify-center">
+      <Dialog open={open} handler={handleOpen} className="h-[80vh] overflow-auto rounded-3xl flex flex-col">
+        <DialogHeader className="flex justify-center my-5 text-4xl text-black font-dm_sans">
           Add New Schedule
         </DialogHeader>
-        <DialogBody className="overflow-y-scroll max-h-[400px] border border-black">
-          <Card
-            color="transparent"
-            shadow={false}
-            className="mx-auto rounded-2xl"
-          >
-            <form className="p-5">
-              <div className="flex flex-col">
-                <div className="flex flex-col items-start w-full gap-2 sm:flex-row">
-                  <div className="flex flex-col flex-1 w-full">
-                    {/* Date Section */}
-                    <Typography variant="h6" color="blue-gray">
-                      Date
-                    </Typography>
-                    <Input
-                      size="lg"
-                      type="date"
-                      placeholder="Date today"
-                      className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
-                      labelProps={{
-                        className: "before:content-none after:content-none",
-                      }}
-                    />
-                  </div>
-                  <div className="flex flex-col w-full mb-2 flex-0">
-                    {/* Name of Owner Section */}
-                    <Typography variant="h6" color="blue-gray">
-                      Name of Owner
-                    </Typography>
-                    <Input
-                      size="lg"
-                      placeholder="e.g. Juan Dela Cruz"
-                      className="!border-t-blue-gray-200 focus:!border-t-gray-900"
-                      labelProps={{
-                        className: "before:content-none after:content-none",
-                      }}
-                    />
-                  </div>
-                </div>
-
-                {/* Address Section */}
-                <Typography variant="h6" color="blue-gray">
-                  Address
-                </Typography>
-                <div className="flex flex-row gap-2 mb-2">
+        <DialogBody className="h-full min-h-[400px] overflow-auto bg-white border-black border-y">
+          <form className="p-5 text-black font-dm_sans">
+            <div className="flex flex-col">
+              <div className="flex flex-col items-start w-full gap-2 sm:flex-row">
+                <div className="flex flex-col flex-1 w-full">
+                  {/* Date Section */}
+                  <Typography classname="font-dm_sans" variant="h6" color="blue-gray">
+                    Date
+                  </Typography>
                   <Input
                     size="lg"
-                    placeholder="e.g. 63 Bantayog St. Concepcion Uno MC"
-                    className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
+                    type="date"
+                    placeholder="Date today"
+                    className="!border-t-blue-gray-200 focus:!border-t-gray-900 w-full"
                     labelProps={{
                       className: "before:content-none after:content-none",
                     }}
                   />
                 </div>
-                <div className="flex flex-col items-start w-full gap-2 sm:flex-row">
-                  <div className="flex flex-col flex-1 w-full">
-                    {/* Name of Pet Section */}
-                    <Typography variant="h6" color="blue-gray">
-                      Name of Pet
-                    </Typography>
-                    <div className="flex flex-row gap-2">
-                      <Input
-                        size="lg"
-                        placeholder="e.g. Brownie"
-                        className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
-                        labelProps={{
-                          className: "before:content-none after:content-none",
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col flex-1 w-full">
-                    {/* Contact No. Section */}
-                    <Typography variant="h6" color="blue-gray">
-                      Contact Number
-                    </Typography>
-                    <div className="flex flex-row gap-2 mb-2">
-                      <Input
-                        size="lg"
-                        placeholder="e.g. 0912345678"
-                        className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
-                        labelProps={{
-                          className: "before:content-none after:content-none",
-                        }}
-                      />
-                    </div>
-                  </div>
+                <div className="flex flex-col w-full mb-2 flex-0">
+                  {/* Name of Owner Section */}
+                  <Typography classname="font-dm_sans" variant="h6" color="blue-gray">
+                    Name of Owner
+                  </Typography>
+                  <Input
+                    size="lg"
+                    placeholder="e.g. Juan Dela Cruz"
+                    className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                    labelProps={{
+                      className: "before:content-none after:content-none",
+                    }}
+                  />
                 </div>
+              </div>
 
-                <div className="flex flex-col items-start w-full gap-2 sm:flex-row">
-                  <div className="flex flex-col flex-1 w-full">
-                    {/* Birthday of Pet Section */}
-                    <Typography variant="h6" color="blue-gray">
-                      Birthday of Pet
-                    </Typography>
-                    <div className="flex flex-row gap-2">
-                      <Input
-                        size="lg"
-                        type="date"
-                        placeholder="0912345678"
-                        className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
-                        labelProps={{
-                          className: "before:content-none after:content-none",
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col flex-1 w-full mb-2">
-                    {/* Death Date Section */}
-                    <Typography variant="h6" color="blue-gray">
-                      Death Date
-                    </Typography>
+              {/* Address Section */}
+              <Typography classname="font-dm_sans" variant="h6" color="blue-gray">
+                Address
+              </Typography>
+              <div className="flex flex-row gap-2 mb-2">
+                <Input
+                  size="lg"
+                  placeholder="e.g. 63 Bantayog St. Concepcion Uno MC"
+                  className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
+                  labelProps={{
+                    className: "before:content-none after:content-none",
+                  }}
+                />
+              </div>
+              <div className="flex flex-col items-start w-full gap-2 sm:flex-row">
+                <div className="flex flex-col flex-1 w-full">
+                  {/* Name of Pet Section */}
+                  <Typography classname="font-dm_sans" variant="h6" color="blue-gray">
+                    Name of Pet
+                  </Typography>
+                  <div className="flex flex-row gap-2">
                     <Input
                       size="lg"
-                      type="date"
-                      placeholder="63 Bantayog St. Concepcion Uno MC"
-                      className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                      placeholder="e.g. Brownie"
+                      className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
                     />
                   </div>
                 </div>
-                {/* Cause of Death Section */}
-                <Typography variant="h6" color="blue-gray">
-                  Cause of Death
-                </Typography>
-                <Input
-                  size="lg"
-                  placeholder="e.g. Penetration"
-                  className="!border-t-blue-gray-200 focus:!border-t-gray-900"
-                  labelProps={{
-                    className: "before:content-none after:content-none",
-                  }}
-                />
+                <div className="flex flex-col flex-1 w-full">
+                  {/* Contact No. Section */}
+                  <Typography classname="font-dm_sans" variant="h6" color="blue-gray">
+                    Contact Number
+                  </Typography>
+                  <div className="flex flex-row gap-2 mb-2">
+                    <Input
+                      size="lg"
+                      placeholder="e.g. 0912345678"
+                      className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
+                      labelProps={{
+                        className: "before:content-none after:content-none",
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
 
-              {/* SubmitInfo Button */}
-              {/* <SubmitBtn
+              <div className="flex flex-col items-start w-full gap-2 sm:flex-row">
+                <div className="flex flex-col flex-1 w-full">
+                  {/* Birthday of Pet Section */}
+                  <Typography classname="font-dm_sans" variant="h6" color="blue-gray">
+                    Birthday of Pet
+                  </Typography>
+                  <div className="flex flex-row gap-2">
+                    <Input
+                      size="lg"
+                      type="date"
+                      placeholder="0912345678"
+                      className="!border-t-blue-gray-200 focus:!border-t-gray-900 flex-1"
+                      labelProps={{
+                        className: "before:content-none after:content-none",
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col flex-1 w-full mb-2">
+                  {/* Death Date Section */}
+                  <Typography classname="font-dm_sans" variant="h6" color="blue-gray">
+                    Death Date
+                  </Typography>
+                  <Input
+                    size="lg"
+                    type="date"
+                    placeholder="63 Bantayog St. Concepcion Uno MC"
+                    className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                    labelProps={{
+                      className: "before:content-none after:content-none",
+                    }}
+                  />
+                </div>
+              </div>
+              {/* Cause of Death Section */}
+              <Typography classname="font-dm_sans" variant="h6" color="blue-gray">
+                Cause of Death
+              </Typography>
+              <Input
+                size="lg"
+                placeholder="e.g. Penetration"
+                className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+
+            {/* SubmitInfo Button */}
+            {/* <SubmitBtn
               label="Submit"
               onClick={handleSubmit}
               id="SubmitInfo"
               type="submit"
             /> */}
-            </form>
-          </Card>
+          </form>
         </DialogBody>
         <DialogFooter>
-          <Button
-            variant="text"
-            color="red"
+          <button
             onClick={handleOpen}
-            className="mr-1"
+            className="z-10 flex items-center justify-center gap-2 px-8 py-4 mr-4 text-lg font-medium text-red-600 transition-all duration-300 ease-in-out transform rounded-lg outline-none active:scale-95 hover:bg-red-50 font-dm_sans"
           >
-            <span>Cancel</span>
-          </Button>
-          <Button
-            variant="gradient"
-            className="border border-black"
-            color="yellow"
+            Cancel
+          </button>
+          <button
+            className="z-10 flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium text-black transition-all duration-300 ease-in-out transform border border-black rounded-lg outline-none bg-tertiary hover:bg-yellow-600 active:scale-95 hover:scale-105 font-dm_sans"
             onClick={handleOpen}
           >
-            <span>Confirm</span>
-          </Button>
+            Confirm
+          </button>
         </DialogFooter>
       </Dialog>
     </>

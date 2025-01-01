@@ -13,11 +13,11 @@ const Testimonials = ({ testimonials }) => {
             <img
               src={testimonial.image}
               alt="Testimonial"
-              className="object-cover w-full rounded-3xl h-[500px] border border-black"
+              className="object-cover w-full rounded-3xl min-h-[400px] h-[60vh] border border-black"
             />
           </div>
           <div className="flex flex-col w-full px-5 text-2xl basis-1/2">
-            <p className="mb-5 text-gray-700 text-balance">"{testimonial.text}"</p>
+            <p className="mb-5 text-gray-700 text-pretty">"{testimonial.text}"</p>
             <p className="font-bold text-black font-quattrocento">— {testimonial.author}</p>
           </div>
         </div>
